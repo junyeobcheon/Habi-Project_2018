@@ -1,0 +1,15 @@
+1. Google에 miniconda를 치고 miniconda 최신버전을 다운로드한다. 
+(자신의 컴퓨터에 맞는 파일 설치할 것.)
+
+2. 사실 miniconda 말고 anaconda 등 다른 디스트리뷰션도 있다.
+우리 수업은 miniconda를 사용할 예정
+
+3. miniconda의 위치는 우리의 workspace에 설치할 것.
+
+4. 설치하고 cmd에 명령어: python 을 쳐서 파이썬 실행시켜보자.
+
+5. 만약 실행이 안되면 설정-고급시스템설정-환경변수-path에 적절한 환경변수 입력해야함.
+(Ask Google !!)
+
+6. Google에 atom editor를 치고 아톰도 설치한다. cmd에서 atom을 쳐서 실행시켜보고 안되면 환경변수로 가자.
+(Ask Google !!)
