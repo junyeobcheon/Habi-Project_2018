@@ -17,7 +17,8 @@ def test(file_name, cut_line):
         if not contents: break
         data = contents.split(",")
         eng_voca.append(data[0])
-        kor_voca.append(data[1])
+        kor = [j for i, j in enumerate(data) if i >=1]
+        kor_voca.append(",".join(kor))
 
     if (len(eng_voca) != len(kor_voca)):
         raise ValueError("단어장에 단어와 뜻의 개수가 다릅니다. 다시 확인해주세요.")
