@@ -1,5 +1,29 @@
 def help():
     print("시험을 보고 싶다면 커맨드 창에 \'voca_test.test(\"시험지파일명\", 합격점수)\' 를 입력하세요.")
+    print("파일의 단어를 셔플하고 싶다면 \'voca_test.shuffle(\"파일명\")\'을 입력하세요.")
+def shuffle(file_name):
+    import random
+    eng_voca = []
+    kor_voca = []
+    new = []
+
+    f = open(file_name, "r")
+    g = open("voca_shuffled.csv", "w")
+    while 1:
+        content = f.readline()
+        if not content: break
+        data = content.split(",")
+        eng_voca.append(data[0])
+        kor = [j for i, j in enumerate(data) if i >=1]
+        kor_voca.append(",".join(kor))
+    indexes = list(range(len(eng_voca)))
+    random.shuffle(indexes)
+    for index in indexes:
+        new = [eng_voca[index], kor_voca[index]]
+        new_line = ",".join(new)
+        g.write(new_line)
+    f.close()
+    g.close()
 
 def test(file_name, cut_line):
     import os
