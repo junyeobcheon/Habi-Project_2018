@@ -29,6 +29,7 @@ def test(file_name, cut_line):
     import os
     import datetime as dt
 
+    os.system("cls")
     eng_voca = []
     kor_voca = []
     score = 0
