@@ -1,8 +1,4 @@
-﻿<d></d>
-<con></con>
-<eval></eval>
-
-<d>2018년 1월 17일</d>
+﻿<d>2018년 1월 17일</d>
 <con>파이썬의 변수: int, float, str 그리고 변환 방법</con>
 <eval>학생들이 변수에 대해서 비교적 쉽게 이해를 한다. 자료저장의 개념은 보충이 필요하다.</eval>
 
@@ -21,27 +17,3 @@
 <d>2018년 2월 14일</d>
 <con>if문을 통한 조건문 연습</con>
 <eval>조건문을 통해 상황에 따라서 다르게 반응하는 프로그램을 제작하였음. 학생들에게서 조건문의 문법을 익히려 노력하는 모습이 보임.</eval>
-
-<d></d>
-<con></con>
-<eval></eval>
-
-<d></d>
-<con></con>
-<eval></eval>
-
-<d></d>
-<con></con>
-<eval></eval>
-
-<d></d>
-<con></con>
-<eval></eval>
-
-<d></d>
-<con></con>
-<eval></eval>
-
-<d></d>
-<con></con>
-<eval></eval>
