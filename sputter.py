@@ -145,35 +145,47 @@ key_sci = []
 f = open("kor6-1.txt", "r", encoding = "utf-8")
 contents = str(f.readlines())
 result = re.findall(r"(<dd>)([\s\S]+?)(</dd>)", contents)
+result1 = re.findall(r"(<w>)([\s\S]+?)(</w>)", contents)
 for i in range(len(result)):
     kor_contents6.append(result[i][1])
+    key_kor.append(result1[i][1])
 f.close()
 kor_contents6 = kor_contents6[::-1]
 
 f = open("math6-1.txt", "r", encoding = "utf-8")
 contents = str(f.readlines())
 result = re.findall(r"(<dd>)([\s\S]+?)(</dd>)", contents)
+result2 = re.findall(r"(<w>)([\s\S]+?)(</w>)", contents)
 for i in range(len(result)):
     math_contents6.append(result[i][1])
+    key_math.append(result2[i][1])
 f.close()
 math_contents6 = math_contents6[::-1]
 
 f = open("soc6-1.txt", "r", encoding = "utf-8")
 contents = str(f.readlines())
 result = re.findall(r"(<dd>)([\s\S]+?)(</dd>)", contents)
+result3 = re.findall(r"(<w>)([\s\S]+?)(</w>)", contents)
 for i in range(len(result)):
     soc_contents6.append(result[i][1])
+    key_soc.append(result3[i][1])
 f.close()
 soc_contents6 = soc_contents6[::-1]
 
 f = open("sci6-1.txt", "r", encoding = "utf-8")
 contents = str(f.readlines())
 result = re.findall(r"(<dd>)([\s\S]+?)(</dd>)", contents)
+result4 = re.findall(r"(<w>)([\s\S]+?)(</w>)", contents)
 for i in range(len(result)):
     sci_contents6.append(result[i][1])
+    key_sci.append(result4[i][1])
 f.close()
 sci_contents6 = sci_contents6[::-1]
 
+key_word6_0 = [i for i in zip(key_kor, key_sci)]
+key_word6_1 = [i for i in zip(key_math, key_soc)]
+key_word6_0 = key_word6_0[::-1]
+key_word6_1 = key_word6_1[::-1]
 # print(calendar.prmonth(2018, 2))
 # print(calendar.monthrange(2018, 2)) (첫요일, 마지막날)
 
@@ -201,6 +213,7 @@ for month in range(first_month, last_month + 1):
                 f.write("지도평가 및 개선점 \n")
                 f.write("4학년: " + sg(key_seed4, key_word4_0[i//4][rand_seed4]) + "\n")
                 f.write("5학년: " + sg(key_seed5, key_word5_0[i//4][rand_seed5]) + "\n")
+                f.write("6학년: " + sg(key_seed6, key_word6_0[i//4][rand_seed6]) + "\n")
                 f.write("\n")
                 # f.write(str(i//4))
                 i += 1
@@ -213,6 +226,7 @@ for month in range(first_month, last_month + 1):
                 f.write("지도평가 및 개선점 \n")
                 f.write("4학년: " + sg(key_seed4, key_word4_1[i//4][rand_seed4]) + "\n")
                 f.write("5학년: " + sg(key_seed5, key_word4_1[i//4][rand_seed5]) + "\n")
+                f.write("6학년: " + sg(key_seed6, key_word6_1[i//4][rand_seed6]) + "\n")
                 f.write("\n")
                 i += 1
             elif (day_key%7 == 2):
@@ -224,6 +238,7 @@ for month in range(first_month, last_month + 1):
                 f.write("지도평가 및 개선점 \n")
                 f.write("4학년: " + sg(key_seed4, key_word4_0[i//4][rand_seed4]) + "\n")
                 f.write("5학년: " + sg(key_seed5, key_word4_0[i//4][rand_seed5]) + "\n")
+                f.write("6학년: " + sg(key_seed6, key_word6_0[i//4][rand_seed6]) + "\n")
                 f.write("\n")
                 i += 1
             elif (day_key%7 == 3):
@@ -235,6 +250,7 @@ for month in range(first_month, last_month + 1):
                 f.write("지도평가 및 개선점 \n")
                 f.write("4학년: " + sg(key_seed4, key_word4_1[i//4][rand_seed4]) + "\n")
                 f.write("5학년: " + sg(key_seed5, key_word4_1[i//4][rand_seed5]) + "\n")
+                f.write("6학년: " + sg(key_seed6, key_word6_1[i//4][rand_seed6]) + "\n")
                 f.write("\n")
                 i += 1
         if (num_days%7 == 6):
