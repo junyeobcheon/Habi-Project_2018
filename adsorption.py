@@ -1,24 +1,189 @@
+import calendar
 import re
+from hydrogen import sentence_generator as sg
+import random
 
-line1 = []
-line2 = []
-line3 = []
+year = 2018
+first_month = 1
+last_month = 6
+len_sg = 30
 
-f = open("과학실험일지.txt", "r", encoding = "utf-8")
+what_day = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일",
+ "월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일",
+ "월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일",
+ "월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일",
+ "월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일",
+ "월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
+
+key_word1 = []
+key_word2 = []
+key_word3 = []
+
+key_math = []
+key_eng = []
+
+math_contents1 = []
+eng_contents1 = []
+
+math_contents2 = []
+eng_contents2 = []
+
+math_contents3 = []
+eng_contents3 = []
+
+f = open("math1-1.txt", "r", encoding = "utf-8")
 contents = str(f.readlines())
-result1 = re.findall(r"(<d>)([\s\S]+?)(</d>)", contents)
-result2 = re.findall(r"(<con>)([\s\S]+?)(</con>)", contents)
-result3 = re.findall(r"(<eval>)([\s\S]+?)(</eval>)", contents)
-for i in range(len(result1)):
-    line1.append(result1[i][1])
-    line2.append(result2[i][1])
-    line3.append(result3[i][1])
+result = re.findall(r"(<dd>)([\s\S]+?)(</dd>)", contents)
+result1 = re.findall(r"(<w>)([\s\S]+?)(</w>)", contents)
+for i in range(len(result)):
+    math_contents1.append(result[i][1])
+    key_math.append(result1[i][1])
 f.close()
+math_contents1 = math_contents1[::-1]
 
-f = open("exp_record.txt", "w", encoding = "utf-8")
-for i in range(len(line1)):
-    f.write(str(line1[i]) + "\n")
-    f.write("내용: " + str(line2[i]) + "\n")
-    f.write("평가: " + str(line3[i]) + "\n")
-    f.write("\n")
+f = open("eng1-1.txt", "r", encoding = "utf-8")
+contents = str(f.readlines())
+result = re.findall(r"(<dd>)([\s\S]+?)(</dd>)", contents)
+result2 = re.findall(r"(<w>)([\s\S]+?)(</w>)", contents)
+for i in range(len(result)):
+    eng_contents1.append(result[i][1])
+    key_eng.append(result2[i][1])
+f.close()
+eng_contents1 = eng_contents1[::-1]
+
+
+key_word1 = [i for i in zip(key_math, key_eng)]
+key_word1 = key_word1[::-1]
+
+key_math = []
+key_eng = []
+
+f = open("math2-1.txt", "r", encoding = "utf-8")
+contents = str(f.readlines())
+result = re.findall(r"(<dd>)([\s\S]+?)(</dd>)", contents)
+result1 = re.findall(r"(<w>)([\s\S]+?)(</w>)", contents)
+for i in range(len(result)):
+    math_contents2.append(result[i][1])
+    key_math.append(result1[i][1])
+f.close()
+math_contents2 = math_contents2[::-1]
+
+f = open("eng2-1.txt", "r", encoding = "utf-8")
+contents = str(f.readlines())
+result = re.findall(r"(<dd>)([\s\S]+?)(</dd>)", contents)
+result2 = re.findall(r"(<w>)([\s\S]+?)(</w>)", contents)
+for i in range(len(result)):
+    eng_contents2.append(result[i][1])
+    key_eng.append(result2[i][1])
+f.close()
+eng_contents2 = eng_contents2[::-1]
+
+
+key_word2 = [i for i in zip(key_math, key_eng)]
+key_word2 = key_word2[::-1]
+
+key_math = []
+key_eng = []
+
+f = open("math3-1.txt", "r", encoding = "utf-8")
+contents = str(f.readlines())
+result = re.findall(r"(<dd>)([\s\S]+?)(</dd>)", contents)
+result1 = re.findall(r"(<w>)([\s\S]+?)(</w>)", contents)
+for i in range(len(result)):
+    math_contents3.append(result[i][1])
+    key_math.append(result1[i][1])
+f.close()
+math_contents3 = math_contents3[::-1]
+
+f = open("eng3-1.txt", "r", encoding = "utf-8")
+contents = str(f.readlines())
+result = re.findall(r"(<dd>)([\s\S]+?)(</dd>)", contents)
+result2 = re.findall(r"(<w>)([\s\S]+?)(</w>)", contents)
+for i in range(len(result)):
+    eng_contents3.append(result[i][1])
+    key_eng.append(result2[i][1])
+f.close()
+eng_contents3 = eng_contents3[::-1]
+
+
+key_word3 = [i for i in zip(key_math, key_eng)]
+key_word3 = key_word3[::-1]
+
+# print(calendar.prmonth(2018, 2))
+# print(calendar.monthrange(2018, 2)) (첫요일, 마지막날)
+
+f = open("중등수업일지.txt", "w", encoding = "utf-8")
+i = 0
+key_seed10 = random.randint(0, len_sg-1)
+key_seed20 = random.randint(0, len_sg-1)
+key_seed30 = random.randint(0, len_sg-1)
+key_seed11 = random.randint(0, len_sg-1)
+key_seed21 = random.randint(0, len_sg-1)
+key_seed31 = random.randint(0, len_sg-1)
+
+for month in range(first_month, last_month + 1):
+    calndr = calendar.monthrange(year, month)
+    day_key = calndr[0]
+    num_days = 0
+    for day in range(1, calndr[1]+1):
+        if (day_key%7 < 4 and day_key%7 >= 0):
+            line = str(month) + "월" + str(day) + "일" + str(what_day[day_key]) + "\n"
+            f.write(line)
+            if (day_key%7 == 0):
+                f.write("1학년: " + math_contents1[i//4] + "\n")
+                f.write("2학년: " + math_contents2[i//4] + "\n")
+                f.write("3학년: " + math_contents3[i//4] + "\n")
+                f.write("\n")
+                f.write("지도평가 및 개선점 \n")
+                f.write("1학년: " + sg(key_seed10, key_word1[i//4][0]) + "\n")
+                f.write("2학년: " + sg(key_seed20, key_word2[i//4][0]) + "\n")
+                f.write("3학년: " + sg(key_seed30, key_word3[i//4][0]) + "\n")
+                f.write("\n")
+                # f.write(str(i//4))
+                i += 1
+            elif (day_key%7 == 1):
+                f.write("1학년: " + eng_contents1[i//4] + "\n")
+                f.write("2학년: " + eng_contents2[i//4] + "\n")
+                f.write("3학년: " + eng_contents3[i//4] + "\n")
+                f.write("\n")
+                f.write("지도평가 및 개선점 \n")
+                f.write("1학년: " + sg(key_seed10, key_word1[i//4][1]) + "\n")
+                f.write("2학년: " + sg(key_seed20, key_word2[i//4][1]) + "\n")
+                f.write("3학년: " + sg(key_seed30, key_word3[i//4][1]) + "\n")
+                f.write("\n")
+                # f.write(str(i//4))
+                i += 1
+            elif (day_key%7 == 2):
+                f.write("1학년: " + math_contents1[i//4] + "\n")
+                f.write("2학년: " + math_contents2[i//4] + "\n")
+                f.write("3학년: " + math_contents3[i//4] + "\n")
+                f.write("\n")
+                f.write("지도평가 및 개선점 \n")
+                f.write("1학년: " + sg(key_seed11, key_word1[i//4][0]) + "\n")
+                f.write("2학년: " + sg(key_seed21, key_word2[i//4][0]) + "\n")
+                f.write("3학년: " + sg(key_seed31, key_word3[i//4][0]) + "\n")
+                f.write("\n")
+                # f.write(str(i//4))
+                i += 1
+            elif (day_key%7 == 3):
+                f.write("1학년: " + eng_contents1[i//4] + "\n")
+                f.write("2학년: " + eng_contents2[i//4] + "\n")
+                f.write("3학년: " + eng_contents3[i//4] + "\n")
+                f.write("\n")
+                f.write("지도평가 및 개선점 \n")
+                f.write("1학년: " + sg(key_seed11, key_word1[i//4][1]) + "\n")
+                f.write("2학년: " + sg(key_seed21, key_word2[i//4][1]) + "\n")
+                f.write("3학년: " + sg(key_seed31, key_word3[i//4][1]) + "\n")
+                f.write("\n")
+                # f.write(str(i//4))
+                i += 1
+        if (num_days%7 == 6):
+            key_seed10 = random.randint(0, len_sg-1)
+            key_seed20 = random.randint(0, len_sg-1)
+            key_seed30 = random.randint(0, len_sg-1)
+            key_seed11 = random.randint(0, len_sg-1)
+            key_seed21 = random.randint(0, len_sg-1)
+            key_seed31 = random.randint(0, len_sg-1)
+        day_key += 1
+        num_days += 1
 f.close()
