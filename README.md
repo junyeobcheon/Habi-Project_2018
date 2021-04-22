@@ -1,4 +1,4 @@
-"# Habi_Project" 
+# Habi_Project
 
 In 2017-2018, I spent 2 years for my mandatory military service(사회복무요원). During the time, I worked for Habi-school (A care-giver for teenagers).
 At that time, I made various programming classes for the kids(Python, Scratch, Arduino, etc). It was great time for me to see how much kids have interested in the programming.
