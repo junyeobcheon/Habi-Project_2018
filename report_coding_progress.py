@@ -1,3 +1,5 @@
+# I taught middle school students how to code. This is for writing the report on its progress.
+
 import re
 
 line1 = []
