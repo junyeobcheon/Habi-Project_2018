@@ -1,3 +1,8 @@
+# In 2017~2018, I taught middle school students how to code. 
+# I made this code to show them the programming is not a fancy technique but one can easily develop the code and use it in an useful way.
+# When users give several vocabularies as an input, the output will be a vocab test which tells whether the users memorize it correctly or not.  
+# I and teenagers have a lot of fun out of it, even though the person being excited most is me. :)
+
 def help():
     print("시험을 보고 싶다면 커맨드 창에 \'voca_test.test(\"시험지파일명\", 합격점수)\' 를 입력하세요.")
     print("파일의 단어를 셔플하고 싶다면 \'voca_test.shuffle(\"파일명\")\'을 입력하세요.")
