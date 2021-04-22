@@ -1,3 +1,6 @@
+# I was writing a report on the students' study progress. I and two of my co-workers spent ~two weeks in writing those documents. 
+# I developed this code for helping the writing the reports and it made the documentation ~100x faster.   
+
 import calendar
 import re
 from hydrogen import sentence_generator as sg
